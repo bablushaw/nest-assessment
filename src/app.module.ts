@@ -5,6 +5,7 @@ import { WeatherModule } from './modules/weather/weather.module';
 import { RetryModule } from './modules/retry/retry.module';
 import { JwtModule } from './modules/jwt/jwt.module';
 import envConfigs from './config/environment/configuration.environment';
+import { CacheModule } from './shared/preprocessor/cache/cache.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import envConfigs from './config/environment/configuration.environment';
     WeatherModule,
     RetryModule,
     JwtModule,
+    CacheModule,
   ],
   controllers: [],
   providers: [],

@@ -37,6 +37,11 @@ const envConfigs = () => ({
   jwt: {
     validToken: process.env.JWT_VALID_TOKEN ?? 'validToken123',
   },
+  cache: {
+    host: process.env.CACHE_HOST ?? 'localhost',
+    port: parseInt(process.env.CACHE_PORT ?? String(6379), 10) || 6379,
+    password: process.env.CACHE_PASSWORD ?? 'password',
+  },
 });
 
 export default envConfigs;

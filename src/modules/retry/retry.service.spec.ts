@@ -3,15 +3,14 @@ import { HttpModule } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { NotFoundException, HttpException } from '@nestjs/common';
 import { RetryService } from './retry.service';
-import { weatherCache } from '../../shared/utils/cache.util';
-import { retryWithBackoff } from '../../shared/utils/retry.util';
+import { retryCallApi } from '../../shared/utils/retry.util';
 import axios from 'axios';
 
 jest.mock('axios');
 jest.mock('../../shared/utils/retry.util');
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
-const mockedRetry = retryWithBackoff as jest.MockedFunction<typeof retryWithBackoff>;
+const mockedRetry = retryCallApi as jest.MockedFunction<typeof retryCallApi>;
 
 const mockConfigService = {
   get: jest.fn((key: string) => {
@@ -36,7 +35,6 @@ describe('RetryService', () => {
     }).compile();
 
     service = module.get<RetryService>(RetryService);
-    weatherCache.clear();
     jest.clearAllMocks();
   });
 

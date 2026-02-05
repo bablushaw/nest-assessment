@@ -20,8 +20,8 @@ async function bootstrap() {
 
   // Swagger configuration
   const config = new DocumentBuilder()
-    .setTitle('AWS Lambda Assessment API')
-    .setDescription('TypeScript & AWS Lambda Coding Test - NestJS Implementation')
+    .setTitle('NestJS Assessment API')
+    .setDescription('NestJS Assessment API')
     .setVersion('1.0')
     .addTag('auth', 'Authentication endpoints')
     .addTag('weather', 'Weather API integration')
